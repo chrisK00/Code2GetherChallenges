@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CityFinder.June.Menus;
+using CityFinder.June.Models;
 using CityFinder.June.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,7 +25,7 @@ namespace CityFinder.June
                 {
                     services.AddSingleton<ZipCodeMenu>();
                     services.AddTransient<IZipCodeService, ZipCodeService>();
-                    //  services.Configure<ZipCodeApiOptions>(hostingContext.Configuration.GetSection("ZipCodeApiOptions"));
+                    //services.Configure<ZipCodeApiOptions>(hostingContext.Configuration.GetSection(nameof(ZipCodeApiOptions)));
 
                     services.AddHttpClient("ZipCodeBase", client =>
                     {
