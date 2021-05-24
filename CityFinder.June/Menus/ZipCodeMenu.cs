@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CityFinder.June.Helpers;
-using CityFinder.June.Models;
 using CityFinder.June.Services;
 using static System.Console;
 

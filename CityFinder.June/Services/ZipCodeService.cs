@@ -14,9 +14,9 @@ namespace CityFinder.June.Services
         // private readonly HttpClient _client = new();
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public ZipCodeService(IOptions<ZipCodeApiOptions> options, IHttpClientFactory httpClientFactory)
+        public ZipCodeService(IHttpClientFactory httpClientFactory)
         {
-            /* without httpclientfactory
+            /* without httpclientfactory add this to ctor IOptions<ZipCodeApiOptions> options
              _client.BaseAddress = new Uri(options.Value.Uri);
              _client.DefaultRequestHeaders.Add("x-rapidapi-key", options.Value.RapidApiKey);
              _client.DefaultRequestHeaders.Add("x-rapidapi-host", options.Value.RapidApiHost);

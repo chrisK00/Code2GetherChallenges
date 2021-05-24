@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CityFinder.June.Menus;
-using CityFinder.June.Models;
 using CityFinder.June.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,7 +8,7 @@ using Polly;
 
 namespace CityFinder.June
 {
-    class Program
+    public class Program
     {
         static async Task Main(string[] args)
         {
@@ -25,7 +24,8 @@ namespace CityFinder.June
                 {
                     services.AddSingleton<ZipCodeMenu>();
                     services.AddTransient<IZipCodeService, ZipCodeService>();
-                    services.Configure<ZipCodeApiOptions>(hostingContext.Configuration.GetSection("ZipCodeApiOptions"));
+                    //  services.Configure<ZipCodeApiOptions>(hostingContext.Configuration.GetSection("ZipCodeApiOptions"));
+
                     services.AddHttpClient("ZipCodeBase", client =>
                     {
                         client.BaseAddress = new Uri(hostingContext.Configuration["ZipCodeApiOptions:Uri"]);
