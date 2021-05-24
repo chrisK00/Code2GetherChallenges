@@ -21,7 +21,7 @@ namespace CityFinder.June.Menus
             char exit = ' ';
             while (exit != 'n')
             {
-                Write("Enter a zipcode:");
+                Write("Enter a zipcode: ");
                 var zipCode = ReadLine();
                 var countryCode = InputHelpers.GetCountryCodeInput();
                 ZipCodeApiResponse response = null;
