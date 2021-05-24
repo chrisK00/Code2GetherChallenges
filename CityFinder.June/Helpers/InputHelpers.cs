@@ -35,7 +35,7 @@ namespace CityFinder.June.Helpers
             while (true)
             {
                 Write(message);
-                if (char.TryParse(ReadLine(), out char input) && charsToMatch.Contains(input))
+                if (char.TryParse(ReadLine().ToLower(), out char input) && charsToMatch.Contains(input))
                 {
                     return input;
                 }

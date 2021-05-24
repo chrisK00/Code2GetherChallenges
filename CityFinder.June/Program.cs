@@ -28,9 +28,10 @@ namespace CityFinder.June
 
                     services.AddHttpClient("ZipCodeBase", client =>
                     {
-                        client.BaseAddress = new Uri(hostingContext.Configuration["ZipCodeApiOptions:Uri"]);
-                        client.DefaultRequestHeaders.Add("x-rapidapi-key", hostingContext.Configuration["ZipCodeApiOptions:RapidApiKey"]);
-                        client.DefaultRequestHeaders.Add("x-rapidapi-host", hostingContext.Configuration["ZipCodeApiOptions:RapidApiHost"]);
+                        //  client.BaseAddress = new Uri(hostingContext.Configuration["ZipCodeApiOptions:Uri"]);
+                        client.BaseAddress = new Uri(hostingContext.Configuration["ZipCodeBaseApiUri"]);
+                        client.DefaultRequestHeaders.Add("x-rapidapi-key", hostingContext.Configuration["RapidApiKey"]);
+                        client.DefaultRequestHeaders.Add("x-rapidapi-host", hostingContext.Configuration["RapidApiHost"]);
                     }).AddTransientHttpErrorPolicy(policy => policy.RetryAsync(2));
                 });
         }
