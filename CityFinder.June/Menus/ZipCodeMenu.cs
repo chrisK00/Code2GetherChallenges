@@ -24,12 +24,9 @@ namespace CityFinder.June.Menus
                 Write("Enter a zipcode: ");
                 var zipCode = ReadLine();
                 var countryCode = InputHelpers.GetCountryCodeInput();
-                ZipCodeApiResponse response = null;
-
                 try
                 {
-                    response = await _zipCodeService.FindCityByZipCodeAsync(zipCode, countryCode);
-
+                    var response = await _zipCodeService.FindCityByZipCodeAsync(zipCode, countryCode);
                     foreach (var locations in response.Results.Values)
                     {
                         foreach (var location in locations)

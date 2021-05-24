@@ -11,19 +11,26 @@ namespace CityFinder.June.Services
 {
     public class ZipCodeService : IZipCodeService
     {
-        private readonly HttpClient _client = new();
+        // private readonly HttpClient _client = new();
+        private readonly IHttpClientFactory _httpClientFactory;
 
-        public ZipCodeService(IOptions<ZipCodeApiOptions> options)
+        public ZipCodeService(IOptions<ZipCodeApiOptions> options, IHttpClientFactory httpClientFactory)
         {
-            _client.BaseAddress = new Uri(options.Value.Uri);
-            _client.DefaultRequestHeaders.Add("x-rapidapi-key", options.Value.RapidApiKey);
-            _client.DefaultRequestHeaders.Add("x-rapidapi-host", options.Value.RapidApiHost);
+            /* without httpclientfactory
+             _client.BaseAddress = new Uri(options.Value.Uri);
+             _client.DefaultRequestHeaders.Add("x-rapidapi-key", options.Value.RapidApiKey);
+             _client.DefaultRequestHeaders.Add("x-rapidapi-host", options.Value.RapidApiHost);
+            */
+
+            _httpClientFactory = httpClientFactory;
         }
 
         public async Task<ZipCodeApiResponse> FindCityByZipCodeAsync(string zipCode, string country)
         {
+            var client = _httpClientFactory.CreateClient("ZipCodeBase");
+
             var sb = new StringBuilder();
-            sb.Append(_client.BaseAddress);
+            sb.Append(client.BaseAddress);
             sb.Append("codes=");
             sb.Append(zipCode);
             sb.Append("&country=");
@@ -32,7 +39,8 @@ namespace CityFinder.June.Services
 
             try
             {
-                response = await _client.GetAsync(sb.ToString());
+                // response = await _client.GetAsync(sb.ToString());
+                response = await client.GetAsync(sb.ToString());
                 response.EnsureSuccessStatusCode();
             }
             catch (HttpRequestException ex)

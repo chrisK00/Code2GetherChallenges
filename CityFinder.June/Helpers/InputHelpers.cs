@@ -32,12 +32,10 @@ namespace CityFinder.June.Helpers
 
         public static char GetCharInput(char[] charsToMatch, string message = "Only enter one letter")
         {
-            char input;
-
             while (true)
             {
                 Write(message);
-                if (char.TryParse(ReadLine(), out input) && charsToMatch.Contains(input))
+                if (char.TryParse(ReadLine(), out char input) && charsToMatch.Contains(input))
                 {
                     return input;
                 }
