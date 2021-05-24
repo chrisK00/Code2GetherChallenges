@@ -1,7 +1,6 @@
 using System;
-using Xunit;
-using CityFinder.June;
 using Microsoft.Extensions.Hosting;
+using Xunit;
 
 namespace CityFinder.June.Tests
 {

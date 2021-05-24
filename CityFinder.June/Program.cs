@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using CityFinder.June.Menus;
-using CityFinder.June.Models;
 using CityFinder.June.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
