@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using CityFinder.June.Helpers;
 using CityFinder.June.Services;
+using Microsoft.Extensions.Logging;
 using static System.Console;
 
 namespace CityFinder.June.Menus
@@ -9,10 +10,12 @@ namespace CityFinder.June.Menus
     public class ZipCodeMenu
     {
         private readonly IZipCodeService _zipCodeService;
+        private readonly ILogger<ZipCodeMenu> _logger;
 
-        public ZipCodeMenu(IZipCodeService zipCodeService)
+        public ZipCodeMenu(IZipCodeService zipCodeService, ILogger<ZipCodeMenu> logger)
         {
             _zipCodeService = zipCodeService;
+            _logger = logger;
         }
 
         public async Task RunAsync()
@@ -36,7 +39,7 @@ namespace CityFinder.June.Menus
                 }
                 catch (Exception ex)
                 {
-                    WriteLine("An error occured: ", ex.Message);
+                    _logger.LogError("An error occured: ", ex.Message);
                 }
 
                 exit = InputHelpers.GetCharInput(new char[] { 'y', 'n' }, "Continue? y/n: ");
