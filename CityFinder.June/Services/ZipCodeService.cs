@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
@@ -46,7 +47,7 @@ namespace CityFinder.June.Services
                 response = await client.GetAsync(sb.ToString());
                 response.EnsureSuccessStatusCode();
             }
-            catch (Exception ex) when (ex is HttpRequestException || ex is Exception)
+            catch (Exception ex) when (ex is HttpRequestException || ex is TaskCanceledException)
             {
                 _logger.LogError("Bad request", ex.Message);
                 throw;
