@@ -1,5 +1,5 @@
 using System;
-using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
 namespace CityFinder.June.Tests
@@ -9,15 +9,15 @@ namespace CityFinder.June.Tests
         [Fact]
         public void VerifyDISetup()
         {
-            Program.CreateHostBuilder(Array.Empty<string>())
-                .UseDefaultServiceProvider(config => config.ValidateOnBuild = true).Build();
+            Program.ConfigureServices()
+                .BuildServiceProvider(new ServiceProviderOptions { ValidateOnBuild = true });
         }
 
         [Fact]
         public void VerifyDIScopes()
         {
-            Program.CreateHostBuilder(Array.Empty<string>())
-                .UseDefaultServiceProvider(config => config.ValidateScopes = true).Build();
+            Program.ConfigureServices()
+                  .BuildServiceProvider(new ServiceProviderOptions { ValidateScopes = true });
         }
     }
 }

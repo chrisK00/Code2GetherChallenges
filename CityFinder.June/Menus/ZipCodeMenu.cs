@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.Http;
+using System.Text.Json;
 using System.Threading.Tasks;
 using CityFinder.June.Helpers;
 using CityFinder.June.Services;
@@ -37,9 +39,9 @@ namespace CityFinder.June.Menus
                         }
                     }
                 }
-                catch (Exception ex)
+                catch (Exception ex) when (ex is HttpRequestException || ex is TaskCanceledException || ex is JsonException)
                 {
-                    _logger.LogError("An error occured: ", ex.Message);
+                    _logger.LogError($"An error occured: {ex.Message}");
                 }
 
                 exit = InputHelpers.GetCharInput(new char[] { 'y', 'n' }, "Continue? y/n: ");
