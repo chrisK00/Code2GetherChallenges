@@ -13,12 +13,6 @@ namespace CityFinder.June.Services
 
         public ZipCodeService(IHttpClientFactory httpClientFactory)
         {
-            /* without httpclientfactory add this to ctor IOptions<ZipCodeApiOptions> options
-             _client.BaseAddress = new Uri(options.Value.Uri);
-             _client.DefaultRequestHeaders.Add("x-rapidapi-key", options.Value.RapidApiKey);
-             _client.DefaultRequestHeaders.Add("x-rapidapi-host", options.Value.RapidApiHost);
-            */
-
             _httpClientFactory = httpClientFactory;
         }
 
