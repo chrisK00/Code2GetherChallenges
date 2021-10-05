@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityFinder.June", "CityFinder.June\CityFinder.June.csproj", "{499F7A9B-8F1C-4D9C-BCA8-816406013526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CityFinder.June.Tests", "CityFinder.June.Tests\CityFinder.June.Tests.csproj", "{35719182-5601-47CA-84C1-64C43B900B23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CityFinder.June.Tests", "CityFinder.June.Tests\CityFinder.June.Tests.csproj", "{35719182-5601-47CA-84C1-64C43B900B23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvPaginated.October", "CsvPaginated.October\CsvPaginated.October.csproj", "{BA5B4F96-7061-40C3-ABFD-C384D3825F34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{35719182-5601-47CA-84C1-64C43B900B23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35719182-5601-47CA-84C1-64C43B900B23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35719182-5601-47CA-84C1-64C43B900B23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA5B4F96-7061-40C3-ABFD-C384D3825F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA5B4F96-7061-40C3-ABFD-C384D3825F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA5B4F96-7061-40C3-ABFD-C384D3825F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA5B4F96-7061-40C3-ABFD-C384D3825F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

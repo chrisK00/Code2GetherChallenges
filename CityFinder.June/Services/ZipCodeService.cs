@@ -3,7 +3,6 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
 using CityFinder.June.Models;
-using Microsoft.Extensions.Logging;
 
 namespace CityFinder.June.Services
 {
