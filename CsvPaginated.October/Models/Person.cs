@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace CsvPaginated.October.Models
 {
@@ -11,5 +12,16 @@ namespace CsvPaginated.October.Models
         public decimal Salary { get; set; }
 
         public string FullName => $"{FirstName}-{LastName}";
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder()
+                .Append($"{Id}: ")
+                .Append($"{FullName}; ")
+                .Append($"\t{Salary:c}")
+                .Append($"\t{BirthDate}").AppendLine();
+
+            return sb.ToString();
+        }
     }
 }

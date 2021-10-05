@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
 using CsvHelper;
 using CsvPaginated.October.Data;
 using CsvPaginated.October.Extensions;
@@ -13,20 +11,6 @@ namespace CsvPaginated.October
 {
     internal class Program
     {
-        public static void PrintPeople(IEnumerable<Person> people)
-        {
-            var sb = new StringBuilder();
-            foreach (var person in people)
-            {
-                sb.Append($"{person.Id}: ")
-                    .Append($"{person.FullName}; ")
-                    .Append($"\t{person.BirthDate}")
-                    .Append($"\t{person.Salary:c}").AppendLine();
-            }
-
-            Console.WriteLine(sb.ToString());
-        }
-
         private static void Main()
         {
             const int minAge = 18;
@@ -45,7 +29,7 @@ namespace CsvPaginated.October
                 .ThenBy(x => x.FirstName)
                 .ToList();
 
-            var menu = new PaginatedMenu<Person>(people, PrintPeople);
+            var menu = new PaginatedMenu<Person>(people);
             menu.Show();
         }
     }
